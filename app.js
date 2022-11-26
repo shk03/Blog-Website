@@ -32,10 +32,8 @@ app.get('/posts/:postTitle', function (req, res) {
   posts.forEach(post => {
     const storedTitle = post.title.replace(' ','-').toLowerCase();
     if (storedTitle === requestedTitle) {
-      console.log("Match Found!");
-    } else {
-      console.log("No Match Found!");
-    }
+      res.render("post", { postTitle: post.title, postBody: post.body });
+    } 
   });
 });
 
