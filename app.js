@@ -27,10 +27,10 @@ app.get("/", function (req, res) {
 });
 
 app.get('/posts/:postTitle', function (req, res) {
-  const requestedTitle = req.params.postTitle;
+  const requestedTitle = req.params.postTitle.toLowerCase();
 
   posts.forEach(post => {
-    const storedTitle = post.title;
+    const storedTitle = post.title.replace(' ','-').toLowerCase();
     if (storedTitle === requestedTitle) {
       console.log("Match Found!");
     } else {
