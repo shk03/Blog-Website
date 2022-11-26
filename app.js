@@ -27,7 +27,7 @@ app.get("/", function (req, res) {
 });
 
 app.get('/posts/:postTitle', function (req, res) {
-  const requestedTitle = req.params.postTitle.toLowerCase();
+  const requestedTitle = req.params.postTitle.replace(' ', '-').toLowerCase();
 
   posts.forEach(post => {
     const storedTitle = post.title.replace(' ','-').toLowerCase();
